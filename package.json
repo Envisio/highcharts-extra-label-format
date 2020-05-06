@@ -1,0 +1,25 @@
+{
+  "name": "highcharts-extra-label-format",
+  "version": "0.0.1",
+  "description": "This package extends Highcharts by adding more format string options.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./src -d ./lib --source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Envisio/highcharts-extra-label-format.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Envisio/highcharts-extra-label-format/issues"
+  },
+  "homepage": "https://github.com/Envisio/highcharts-extra-label-format#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}

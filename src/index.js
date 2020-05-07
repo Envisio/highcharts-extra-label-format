@@ -1,17 +1,16 @@
 import formatDuration from './formatters/duration';
 
-DURATION_TYPE_KEY = {
+const DURATION_TYPE_KEY = {
   s: 'SECOND',
   m: 'MINUTE',
   h: 'HOUR',
   d: 'DAY'
 };
 
-DURATION_MODIFIER = {
+const DURATION_MODIFIER = {
   p: 'PART',
   t: 'TOTAL',
 };
-
 
 export default function HCAdditionalFormatting(H) {
   const durationFormats = Object.keys(DURATION_TYPE_KEY).reduce((acc, durationKey) => {
@@ -30,4 +29,4 @@ export default function HCAdditionalFormatting(H) {
     ...durationFormats,
     ...H.dateFormats,
   };
-}
+};

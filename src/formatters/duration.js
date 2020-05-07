@@ -1,13 +1,13 @@
 import padStart from '../util/pad_start';
 
-PART_LENGTH = {
+const PART_LENGTH = {
   SECOND: 1000,
   MINUTE: 60000,
   HOUR: 3600000,
   DAY: 86400000,
 }
 
-PART_LIMIT = {
+const PART_LIMIT = {
   SECOND: 60,
   MINUTE: 60,
   HOUR: 24,

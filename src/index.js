@@ -1,4 +1,4 @@
-import formatDuration from 'formatters/duration';
+import formatDuration from './formatters/duration';
 
 DURATION_TYPE_KEY = {
   s: 'SECOND',

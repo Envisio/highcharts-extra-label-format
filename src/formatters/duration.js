@@ -20,12 +20,14 @@ const formatDurationTotal = (durationType) => (duration) => {
   return Math.floor(totalDuration);
 }
 
-export default formatDuration = (durationType, modifier) => (duration) => {
-  const totalDuration = formatDurationTotal(durationType)(duration);
-  const durationPart = modifier === "PART" && PART_LIMIT[durationType] ? totalDuration % PART_LIMIT[durationPart] : totalDuration;
+export default function formatDuration(durationType, modifier) {
+  return (duration) => {
+    const totalDuration = formatDurationTotal(durationType)(duration);
+    const durationPart = modifier === "PART" && PART_LIMIT[durationType] ? totalDuration % PART_LIMIT[durationPart] : totalDuration;
 
-  return padStart(durationPart, 2, 0);
-}
+    return padStart(durationPart, 2, 0);
+  }
+};
 
 // export default function formatDuration(timestamp) {
 //   var numberDuration = timestamp;

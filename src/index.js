@@ -8,8 +8,9 @@ const DURATION_TYPE_KEY = {
 };
 
 const DURATION_MODIFIER = {
-  p: 'PART',
-  t: 'TOTAL',
+  p: 'PART',                    // gets a part of duration, eg. second part
+  c: 'PART_WITHOUT_CEILING',    // gets a part of duration without a limit, eg. seconds part that can be > a minute
+  t: 'TOTAL',                   // gets total number of a duration part rounded to nearest integer
 };
 
 export default function HCAdditionalFormatting(H) {

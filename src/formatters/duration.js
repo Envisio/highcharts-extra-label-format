@@ -17,13 +17,23 @@ const formatDurationTotal = (durationType) => (duration) => {
   const absUnitMillisec = Math.abs(parseInt(duration), 10);
   const totalDuration = absUnitMillisec / PART_LENGTH[durationType];
 
-  return Math.floor(totalDuration);
+  return totalDuration;
 }
 
 export default function formatDuration(durationType, modifier) {
   return (duration) => {
     const totalDuration = formatDurationTotal(durationType)(duration);
-    const durationPart = modifier === "PART" && PART_LIMIT[durationType] ? totalDuration % PART_LIMIT[durationPart] : totalDuration;
+
+    let durationPart;
+    if (modifier === 'PART' || modifier === 'PART_WITHOUT_CEILING') {
+      durationPart = Math.floor(totalDuration);
+    } else {
+      durationPart = Math.round(totalDuration);
+    }
+
+    if (modifier === 'PART' && PART_LIMIT[durationType]) {
+      durationPart = durationPart % PART_LIMIT[durationType];
+    }
 
     return padStart(durationPart, 2, 0);
   }

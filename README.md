@@ -36,7 +36,7 @@ Example:
 <pre>
 Format String: '%Dmc minutes, %Dsp seconds'
 Input: '13523000' (3 hours, 45 minutes, 23 seconds in milliseconds)
-Result: '225 minutes, 23 seconds
+Result: '225 minutes, 23 seconds'
 </pre>
 
 

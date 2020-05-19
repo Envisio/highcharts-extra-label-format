@@ -20,35 +20,19 @@ const formatDurationTotal = (durationType) => (duration) => {
   return totalDuration;
 }
 
-export default function formatDuration(durationType, modifier) {
-  return (duration) => {
-    const totalDuration = formatDurationTotal(durationType)(duration);
+export default (durationType, modifier) => (duration) => {
+  const totalDuration = formatDurationTotal(durationType)(duration);
 
-    let durationPart;
-    if (modifier === 'PART' || modifier === 'PART_WITHOUT_CEILING') {
-      durationPart = Math.floor(totalDuration);
-    } else {
-      durationPart = Math.round(totalDuration);
-    }
-
-    if (modifier === 'PART' && PART_LIMIT[durationType]) {
-      durationPart = durationPart % PART_LIMIT[durationType];
-    }
-
-    return padStart(durationPart, 2, 0);
+  let durationPart;
+  if (modifier === 'PART' || modifier === 'PART_WITHOUT_CEILING') {
+    durationPart = Math.floor(totalDuration);
+  } else {
+    durationPart = Math.round(totalDuration);
   }
-};
 
-// export default function formatDuration(timestamp) {
-//   var numberDuration = timestamp;
+  if (modifier === 'PART' && PART_LIMIT[durationType]) {
+    durationPart = durationPart % PART_LIMIT[durationType];
+  }
 
-//   var unixSec = parseInt(numberDuration, 10) / 1000;
-//   var negative = unixSec < 0;
-//   var absUnixSec = negative ? -unixSec : unixSec;
-//   var totalMinutes = Math.floor(absUnixSec / 60);
-//   var seconds = absUnixSec % 60;
-//   var hours = Math.floor(totalMinutes / 60);
-//   var minutes = totalMinutes % 60;
-
-//   return (negative ? '-' : '') + padStart(hours, 2, 0) + ":" + padStart(minutes, 2, 0) + ":" + padStart(seconds, 2, 0);
-// };
+  return padStart(durationPart, 2, 0);
+}
